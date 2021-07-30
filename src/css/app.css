@@ -1,3 +1,11 @@
+/*import a library that helps default values look the same across all browsers. */
+@import-normalize;
+@import 'bug-list.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

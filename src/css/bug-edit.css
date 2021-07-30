@@ -1,0 +1,30 @@
+.bug-edit {
+  width: 50%;
+  padding: 30px;
+  padding-top: 10px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  max-height: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+textarea {
+  height: 200px;
+}
+
+
+.bug-edit__details-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 10px;
+  column-gap: 40px;
+}
+
+.bug-edit__tags {
+  display: flex;
+}
+

@@ -1,6 +1,9 @@
 /*import a library that helps default values look the same across all browsers. */
 @import-normalize;
 @import 'bug-list.css';
+@import 'bug.css';
+@import 'buttons.css';
+@import 'bug-edit.css';
 
 *, *::before, *::after {
   box-sizing: border-box;

@@ -1,0 +1,24 @@
+.bug__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+
+.bug__title {
+  width: 75%;
+}
+
+.bug__priority {
+  background-color: yellow;
+}
+
+.bug {
+  border-bottom: 1px solid black;
+  padding: 1em;
+  padding-bottom: 1em;
+}
+
+.bug:last-child {
+  border-bottom: none;
+  padding-bottom: 10px;
+}

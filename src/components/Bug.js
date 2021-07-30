@@ -7,14 +7,21 @@ export default function Bug(props) {
     title,
     description,
     media,
+    type,
     tags
   } = props;
   return (
     <div className="bug">
       <div className="bug__header">
+        <p className="bug__type">Issue Type: {type}</p>
         <h3 className="bug__title">{title}</h3>
-        <p>{priority}</p>
-      </div>      
+        <p>Priority Level:<span className="bug__priority">{priority}</span></p>
+        <div>
+          <button className="btn">Edit</button>
+          <button className="btn">Resolve</button>
+        </div>
+      </div>
+      <h4>Instructions:</h4>      
       <p className="bug__description">{description}</p>
       <div className="bug__media">{media}</div>
  

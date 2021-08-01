@@ -69,39 +69,25 @@ export default function BugEdit() {
           htmlFor="tags"
           >Tags:
         </label>
-        <select
-          name="tags"
-          className="bug-edit__select"
-          id="tags"
-          type="select"
-          > 
-            <option value="Code">Code</option>
-            <option value="UI">UI</option>
-            <option value="Art">Art</option>
-        </select>
-      <div className="bug-edit__tags">
-        <label htmlFor="tags" className="bug-edit__checkbox"> Tags:
-          <span>Code</span>
-          <input type="checkbox" id="Code" name="Code"value="Code"/>
-          <span>UI</span>
-          <input type="checkbox" id="UI" name="UI"value="UI"/>
-          <span>Art</span>
-          <input type="checkbox" id="Art" name="Art"value="Art"/>
-        </label>  
-      </div>
-        {/* //compare */}
-        <label htmlfor="cars">Choose a car:</label>
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
-        <label htmlFor="vehicle1"> I have a bike</label>
-        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car"/>
-        <label htmlFor="vehicle2"> I have a car</label>
-        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"/>
-        <label htmlFor="vehicle3"> I have a boat</label>   
-    </div>
 
+      <div className="bug-edit__tags-list">
+        <label htmlFor="code" >
+          <input type="checkbox" name="code" id="code" value="code" className="bug-edit__checkbox"/>
+          Code
+        </label>
+        <label htmlFor="ui" >
+          <input type="checkbox" name="ui" id="ui" value="ui" className="bug-edit__checkbox"/>
+          UI
+        </label>
+        <label htmlFor="art">
+          <input type="checkbox" name="art" id="art" value="art" className="bug-edit__checkbox"/>
+          Art
+        </label>
+      </div> 
+    </div>
       
         
-    </div>
+  </div>
   
   )
 }

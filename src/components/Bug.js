@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 export default function Bug(props) {
   const {
-    id,
     priority,
     title,
     description,
@@ -24,6 +23,7 @@ export default function Bug(props) {
       <h4>Instructions:</h4>      
       <p className="bug__description">{description}</p>
       <div className="bug__media">{media}</div>
+      <div className="bug__tags">Tags: {`${tags}`}</div>
  
     </div>
   )

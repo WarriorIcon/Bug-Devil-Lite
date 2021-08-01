@@ -24,7 +24,23 @@ textarea {
   column-gap: 40px;
 }
 
-.bug-edit__tags {
-  display: flex;
+.bug-edit__tags-list {
+ 
+}
+
+.but-edit__tags-list label {
+  
+}
+
+.bug-edit__tags-list label input {
+  
+}
+
+.bug-edit__checkbox {  
+  margin: 0 .3em;
+}
+
+.bug-edit__checkbox:last-child {  
+  margin-left: .3em;
 }
 

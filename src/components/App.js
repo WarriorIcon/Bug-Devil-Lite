@@ -28,7 +28,7 @@ function App() {
   }
   return (
     <BugContext.Provider value={bugContextValue}>
-      <BugList bugs={sampleBugs}/>
+      <BugList bugs={bugs}/>
       <BugEdit />
     </BugContext.Provider>
   )

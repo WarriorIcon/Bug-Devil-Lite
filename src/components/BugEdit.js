@@ -4,6 +4,13 @@ import { BugContext } from './App'
 
 
 export default function BugEdit( { selectedBug }) {
+  const { handleBugEdit, handleBugSelect} = useContext(BugContext)
+
+  function handleEdit(changes) {
+    /*Grab the selected bug id and the add the changes to it using spread*/
+    handleBugEdit(selectedBug.id, { ...selectedBug, ...changes } )
+  }
+
   return (
     <div className="bug-edit">
       <div className="bug-edit__details-grid">
@@ -16,6 +23,7 @@ export default function BugEdit( { selectedBug }) {
           type="text" 
           name="title" 
           id="title"
+          onChange={ e => handleEdit({title: e.target.value})}
           value={selectedBug.title}
           placeholder="Enter issue title"
           className="bug-edit__input"/>
@@ -28,6 +36,7 @@ export default function BugEdit( { selectedBug }) {
           name="priority"
           className="bug-edit__select"
           id="priority"
+          onChange={ e => handleEdit({priority: e.target.value})}
           type="select"
           value={selectedBug.priority}
           > 
@@ -46,6 +55,7 @@ export default function BugEdit( { selectedBug }) {
           id="description"
           placeholder="Text area where you can write about the bug"
           value={selectedBug.description}
+          onChange={ e => handleEdit({description: e.target.value})}
         />
         <label
           className="bug-edit__label"
@@ -67,6 +77,7 @@ export default function BugEdit( { selectedBug }) {
           id="type"
           type="select"
           value={selectedBug.type}
+          onChange={ e => handleEdit({type: e.target.value})}
           > 
             <option value="Bug">Bug</option>
             <option value="Request">Request</option>

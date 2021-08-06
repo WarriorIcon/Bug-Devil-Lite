@@ -14,7 +14,8 @@ function App() {
   const bugContextValue = {
     handleBugAdd,
     handleBugDelete,
-    handleBugSelect
+    handleBugSelect,
+    handleBugEdit
   }
 
   useEffect(() => {
@@ -48,6 +49,16 @@ function App() {
     }
     setBugs([...bugs, newBug])
   }
+
+  function handleBugEdit(id, bug) {
+    /* take the id of the bug we want to change and the new bug we want to replace the old one with
+     essentially, just mutate our array to the new inputs*/
+     const newBugs = [...bugs]
+     const index = bugs.findIndex( b => b.id === id)
+     newBugs[index] = bug
+     setBugs(newBugs)
+  }
+
   return (
     <BugContext.Provider value={bugContextValue}>
       <BugList bugs={bugs}/>
@@ -61,7 +72,7 @@ const sampleBugs = [
     id: uuidv4(),
     priority: 'High',
     title: 'Game breaking resolution error',
-    description: 'When you go to the main menu, the resolution is messed up. Steps to reproduce:\n 1. Enter the Wisp Farm. \n2. Press the back button. \n3. Observe that the game resolution has changed dramatically.',
+    description: 'When you go to the main menu, the resolution is messed up. Steps to reproduce:\n1. Enter the Wisp Farm. \n2. Press the back button. \n3. Observe that the game resolution has changed dramatically.',
     media: 'url',
     type: "Bug",
     author: 'Scott',

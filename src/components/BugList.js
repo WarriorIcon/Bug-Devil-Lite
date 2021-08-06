@@ -15,7 +15,7 @@ export default function BugList({ bugs }) {
         <button
           className="btn"
           onClick={handleBugAdd}
-          >Add New Bug</button>
+          >Add New Issue</button>
       </div>    
   </div>
   )

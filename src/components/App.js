@@ -1,16 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import BugList from './BugList'
 import BugEdit from './BugEdit'
 import { v4 as uuidv4 } from 'uuid';
 
 export const BugContext = React.createContext()
-
+const LOCAL_STORAGE_KEY = 'bugDevilLite.bugs'
 
 function App() {
   const [bugs, setBugs] = useState(sampleBugs)
+  const [selectedBugId, setSelectedBugId] = useState()
+  const selectedBug = bugs.find(bug => bug.id === selectedBugId )
 
   const bugContextValue = {
     handleBugAdd,
+    handleBugDelete,
+    handleBugSelect
+  }
+
+  useEffect(() => {
+    const bugsJSON = localStorage.getItem(LOCAL_STORAGE_KEY)
+    if (bugsJSON !== null) setBugs(JSON.parse(bugsJSON))
+  },[])
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(bugs))
+  },[bugs])
+
+  
+  function handleBugSelect(id) {
+    setSelectedBugId(id)
+  }
+  
+  function handleBugDelete(id) {
+    setBugs(bugs.filter(bug => bug.id !== id))
   }
 
   function handleBugAdd() {
@@ -20,7 +42,7 @@ function App() {
       title: 'New',
       description: 'It Works',
       media: '',
-      type: '',
+      type: 'Something',
       author: '',
       tags: []
     }
@@ -29,7 +51,7 @@ function App() {
   return (
     <BugContext.Provider value={bugContextValue}>
       <BugList bugs={bugs}/>
-      <BugEdit />
+      {selectedBug && <BugEdit selectedBug={selectedBug}/> }
     </BugContext.Provider>
   )
 }

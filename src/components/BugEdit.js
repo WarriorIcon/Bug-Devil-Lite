@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { v4 as uuidv4 } from 'uuid';
+import { BugContext } from './App'
 
-export default function BugEdit() {
+
+export default function BugEdit( { selectedBug }) {
   return (
     <div className="bug-edit">
       <div className="bug-edit__details-grid">
@@ -13,7 +16,8 @@ export default function BugEdit() {
           type="text" 
           name="title" 
           id="title"
-          value=''
+          value={selectedBug.title}
+          placeholder="Enter issue title"
           className="bug-edit__input"/>
         <label
           htmlFor="priority"
@@ -25,6 +29,7 @@ export default function BugEdit() {
           className="bug-edit__select"
           id="priority"
           type="select"
+          value={selectedBug.priority}
           > 
           <option value="Urgent">Urgent</option>
           <option value="High">High</option>
@@ -39,7 +44,8 @@ export default function BugEdit() {
         <textarea
           name="description"
           id="description"
-          value="Text area where you can write about the bug"
+          placeholder="Text area where you can write about the bug"
+          value={selectedBug.description}
         />
         <label
           className="bug-edit__label"
@@ -60,6 +66,7 @@ export default function BugEdit() {
           className="bug-edit__select"
           id="type"
           type="select"
+          value={selectedBug.type}
           > 
             <option value="Bug">Bug</option>
             <option value="Request">Request</option>

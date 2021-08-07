@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import BugList from './BugList'
 import BugEdit from './BugEdit'
-import Checkboxes from './Checkboxes'
 import { v4 as uuidv4 } from 'uuid';
 
 export const BugContext = React.createContext()

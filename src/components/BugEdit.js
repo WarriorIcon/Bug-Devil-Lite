@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { BugContext } from './App'
+import Checkboxes from './Checkboxes'
 
 
 export default function BugEdit( { selectedBug }) {
@@ -10,6 +11,12 @@ export default function BugEdit( { selectedBug }) {
     /*Grab the selected bug id and the add the changes to it using spread*/
     handleBugEdit(selectedBug.id, { ...selectedBug, ...changes } )
   }
+
+  const boxes = [
+    { label: "Code", id: "code", key: uuidv4(), isChecked: true},
+    { label: "UI", id: "ui", key: uuidv4(), isChecked: false} ,
+    { label: "Art", id: "art", key: uuidv4(), isChecked: false}
+  ]
 
   return (
     <div className="bug-edit">
@@ -102,6 +109,9 @@ export default function BugEdit( { selectedBug }) {
           Art
         </label>
       </div> 
+      <Checkboxes 
+        boxes={boxes}
+      />
     </div>
       
         

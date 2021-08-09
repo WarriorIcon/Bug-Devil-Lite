@@ -1,8 +1,11 @@
-import React, {useState, useEffect } from 'react'
+import React, {useState, useEffect, useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid';
+import { BugContext } from './App'
 
-export default function Checkboxes({ boxes }) {
-  const [boxState, setBoxState] = useState({  })
+export default function Checkboxes({ boxes, selectedBug }) {
+  const [boxState, setBoxState] = useState({ code: false, ui: false, art: false })
+
+  const { handleBugEdit, handleBugSelect} = useContext(BugContext)
 
   useEffect( () => console.log(boxState), [boxState])
 
@@ -11,6 +14,12 @@ export default function Checkboxes({ boxes }) {
       ...prevState,
       [boxId]: !prevState[boxId]
     }))
+    // handleEdit({ [boxId]: !prevState[boxId]} )
+  }
+  
+  function handleEdit(changes) {
+    /*Grab the selected bug id and the add the changes to it using spread*/
+    handleBugEdit(selectedBug.id, { ...selectedBug, ...changes } )
   }
 
   return ( 

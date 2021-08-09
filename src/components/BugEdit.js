@@ -5,15 +5,23 @@ import Checkboxes from './Checkboxes'
 
 
 export default function BugEdit( { selectedBug }) {
-  const { handleBugEdit, handleBugSelect} = useContext(BugContext)
+  const { handleBugEdit, handleBugSelect, handleChange} = useContext(BugContext)
 
   function handleEdit(changes) {
     /*Grab the selected bug id and the add the changes to it using spread*/
     handleBugEdit(selectedBug.id, { ...selectedBug, ...changes } )
   }
 
+  function handleTagsChange(id, tag) {
+    //duplicate the old tags object so we can mutate it and then setState to it
+    const newTags = [...selectedBug.tags]
+    const index = newTags.findIndex(t => t.id === id)
+    newTags[index] = tag;
+    handleChange({ tags: newTags })
+  }
+
   const boxes = [
-    { label: "Code", id: "code", key: uuidv4(), isChecked: true},
+    { label: "Code", id: "code", key: uuidv4(), isChecked: false},
     { label: "UI", id: "ui", key: uuidv4(), isChecked: false} ,
     { label: "Art", id: "art", key: uuidv4(), isChecked: false}
   ]
@@ -94,23 +102,10 @@ export default function BugEdit( { selectedBug }) {
           htmlFor="tags"
           >Tags:
         </label>
-
-      <div className="bug-edit__tags-list">
-        <label htmlFor="code" >
-          <input type="checkbox" name="code" id="code" value="code" className="bug-edit__checkbox"/>
-          Code
-        </label>
-        <label htmlFor="ui" >
-          <input type="checkbox" name="ui" id="ui" value="ui" className="bug-edit__checkbox"/>
-          UI
-        </label>
-        <label htmlFor="art">
-          <input type="checkbox" name="art" id="art" value="art" className="bug-edit__checkbox"/>
-          Art
-        </label>
-      </div> 
       <Checkboxes 
         boxes={boxes}
+        selectedBug={selectedBug}
+        
       />
     </div>
       

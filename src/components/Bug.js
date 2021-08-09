@@ -14,7 +14,14 @@ export default function Bug(props) {
     author
   } = props;
 
+  // function handleTagAdd(object) {
+  //   for (const property in object ) {
+  //     if (object.property === true) { console.log(`${property}`) }
+  //   }
+  // }
+
   return (
+    <>
     <div className="bug">
       <div className="bug__header">
         <p className="bug__type">Issue Type: {type}</p>
@@ -36,9 +43,14 @@ export default function Bug(props) {
       <h4>Instructions:</h4>      
       <p className="bug__description">{description}</p>
       <div className="bug__media">{media}</div>
-      <div className="bug__tags">Tags: {`${tags}`}</div>
+      <div className="bug__tags">
+        {/* Tags: { tags.map(tag => {
+          if (Object.values(tag).includes(true)) {
+            console.log(`${tag}`)
+         }})} */}
+        </div>
       <div className="bug__author">Author: {author}</div>
  
     </div>
-  )
+ </> )
 }

@@ -15,9 +15,10 @@ export default function BugEdit( { selectedBug }) {
   function handleTagsChange(id, tag) {
     //duplicate the old tags object so we can mutate it and then setState to it
     const newTags = [...selectedBug.tags]
-    const index = newTags.findIndex(t => t.id === id)
-    newTags[index] = tag;
-    handleChange({ tags: newTags })
+    // const index = newTags.findIndex(t => t.id === id)
+    // newTags[index] = tag;
+    console.log(newTags)
+    // handleEdit({ tags: newTags })
   }
 
   const boxes = [

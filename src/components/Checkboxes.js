@@ -13,6 +13,7 @@ export default function Checkboxes({ boxes, selectedBug }) {
     setBoxState((prevState) => ({
       ...prevState,
       [boxId]: !prevState[boxId]
+      
     }))
     // handleEdit({ [boxId]: !prevState[boxId]} )
   }

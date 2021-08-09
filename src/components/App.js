@@ -45,12 +45,14 @@ function App() {
       media: '',
       type: 'Something',
       author: '',
-      tags: {
-        code: true,
-        ui: false,
-        art: false
-      }
-    }
+      tags: [
+          {
+          code: true,
+          ui: false,
+          art: false
+        }
+    ]
+  }
     setBugs([...bugs, newBug])
   }
 

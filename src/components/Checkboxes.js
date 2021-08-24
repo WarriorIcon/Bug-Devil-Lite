@@ -14,9 +14,8 @@ export default function Checkboxes({ boxes, selectedBug }) {
     setBoxState((prevState) => ({
       ...prevState,
       [boxId]: !prevState[boxId]
-      
-    }))
-    // handleEdit({ [boxId]: !prevState[boxId]} )
+    })) 
+    handleEdit(boxState)   
   }
   
   function handleEdit(changes) {
@@ -27,7 +26,6 @@ export default function Checkboxes({ boxes, selectedBug }) {
 function handleTags() {
   console.log(boxState)
 }
-
 
   return ( 
     <div className="bug-edit__tags-list">
@@ -42,7 +40,7 @@ function handleTags() {
                 type="checkbox"
                 className="bug-edit__checkbox"
                 value={boxData.label} // checked needs to check the state to know true or false
-                checked={boxState.selectedBug.tags[boxData.id]}
+                checked={selectedBug.tags[boxData.id]}
                 onChange={() => handleCheckboxes(boxData.id)}  
               />
             </label>

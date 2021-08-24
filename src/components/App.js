@@ -98,7 +98,7 @@ const sampleBugs = [
     author: 'Scott',
     tags: {        
       code: true,
-      ui: false,
+      ui: true,
       art: false
     }
   },
@@ -112,7 +112,7 @@ const sampleBugs = [
     type: 'Request',
     author: 'Scott',
     tags: {        
-      code: true,
+      code: false,
       ui: false,
       art: false
     }

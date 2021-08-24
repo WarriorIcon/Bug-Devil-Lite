@@ -45,13 +45,12 @@ function App() {
       media: '',
       type: 'Something',
       author: '',
-      tags: [
-          {
-          code: true,
-          ui: false,
-          art: false
-        }
-    ]
+      tags: {        
+        code: true,
+        ui: false,
+        art: false
+      }
+    
   }
     setBugs([...bugs, newBug])
   }
@@ -82,9 +81,11 @@ const sampleBugs = [
     media: 'url',
     type: "Bug",
     author: 'Scott',
-    tags: [
-      'UI', 'Graphics', 'Main Menu'
-    ]
+    tags: {        
+      code: true,
+      ui: false,
+      art: false
+    }
   },
 
   {
@@ -95,9 +96,11 @@ const sampleBugs = [
     media: 'url',
     type: 'Bug',
     author: 'Scott',
-    tags: [
-      'Code', 'Runner Mode'
-    ]
+    tags: {        
+      code: true,
+      ui: false,
+      art: false
+    }
   },
 
   {
@@ -108,9 +111,11 @@ const sampleBugs = [
     media: 'url',
     type: 'Request',
     author: 'Scott',
-    tags: [
-      'QA Tester', 'Hire New Ones'
-    ]
+    tags: {        
+      code: true,
+      ui: false,
+      art: false
+    }
   }
 ]
 

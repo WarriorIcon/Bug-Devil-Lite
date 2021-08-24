@@ -3,11 +3,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { BugContext } from './App'
 
 export default function Checkboxes({ boxes, selectedBug }) {
-  const [boxState, setBoxState] = useState({ code: false, ui: false, art: false })
+  const [boxState, setBoxState] = useState({ selectedBug })
 
   const { handleBugEdit, handleBugSelect} = useContext(BugContext)
 
   useEffect( () => console.log(boxState), [boxState])
+  useEffect( () => console.log(selectedBug), [boxState])
 
   function handleCheckboxes(boxId) {
     setBoxState((prevState) => ({
@@ -23,6 +24,11 @@ export default function Checkboxes({ boxes, selectedBug }) {
     handleBugEdit(selectedBug.id, { ...selectedBug, ...changes } )
   }
 
+function handleTags() {
+  console.log(boxState)
+}
+
+
   return ( 
     <div className="bug-edit__tags-list">
         {boxes.map((boxData) => {
@@ -35,8 +41,8 @@ export default function Checkboxes({ boxes, selectedBug }) {
                 key={boxData.key}
                 type="checkbox"
                 className="bug-edit__checkbox"
-                value={boxData.label}
-                checked={boxState[boxData.isChecked]}
+                value={boxData.label} // checked needs to check the state to know true or false
+                checked={boxState[boxData.id]}
                 onChange={() => handleCheckboxes(boxData.id)}  
               />
             </label>

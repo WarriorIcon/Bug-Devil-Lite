@@ -15,7 +15,7 @@ export default function Checkboxes({ boxes, selectedBug }) {
       ...prevState,
       [boxId]: !prevState[boxId]
     })) 
-    handleEdit(boxState)   
+    // handleEdit({selectedBug.tags[boxId]: boxState[boxId]})   
   }
   
   function handleEdit(changes) {

@@ -4,7 +4,7 @@ import { BugContext } from './App'
 import Checkboxes from './Checkboxes'
 
 
-export default function BugEdit( { selectedBug }) { // I tried setting this to selectedBug.tags 
+export default function BugEdit( { selectedBug }) { // I tried setting test to selectedBug.tags 
   const { handleBugEdit, handleBugSelect, handleChange} = useContext(BugContext)
 
   function handleEdit(changes) {

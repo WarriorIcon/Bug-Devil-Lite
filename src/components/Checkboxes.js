@@ -42,7 +42,7 @@ function handleTags() {
                 type="checkbox"
                 className="bug-edit__checkbox"
                 value={boxData.label} // checked needs to check the state to know true or false
-                checked={boxState[boxData.id]}
+                checked={boxState.selectedBug.tags[boxData.id]}
                 onChange={() => handleCheckboxes(boxData.id)}  
               />
             </label>

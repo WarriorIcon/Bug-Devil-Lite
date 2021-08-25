@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { BugContext } from './App'
 
 export default function Checkboxes({ boxes, selectedBug }) {
-  const [boxState, setBoxState] = useState({ selectedBug })
+  const [boxState, setBoxState] = useState(selectedBug.tags)
 
   const { handleBugEdit, handleBugSelect} = useContext(BugContext)
 
@@ -15,7 +15,7 @@ export default function Checkboxes({ boxes, selectedBug }) {
       ...prevState,
       [boxId]: !prevState[boxId]
     })) 
-    // handleEdit({selectedBug.tags[boxId]: boxState[boxId]})   
+    handleEdit(selectedBug.tags[boxId] = boxState[boxId])   
   }
   
   function handleEdit(changes) {
